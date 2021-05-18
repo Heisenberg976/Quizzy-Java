@@ -70,4 +70,17 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    public boolean select(String username, String password) {
+        ResultSet res = null;
+        try {
+            PreparedStatement st = con.prepareStatement("select from users where email = ? and password = ?");
+            st.setString(1, username);
+            st.setString(2, password);
+             res = st.executeQuery();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return res != null;
+    }
 }

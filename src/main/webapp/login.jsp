@@ -14,7 +14,7 @@
                         <input type="password" class="form-control" name="password">
                         <a href="register.jsp">Create new account</a>
                         <br> <br>
-                        <input type="submit" name="submit" value="Sign in" class="btn btn-success">
+                        <input type="submit" name="submit" value="Sign in" class="btn btn-primary">
                     </form>
                 </div>
             </div>

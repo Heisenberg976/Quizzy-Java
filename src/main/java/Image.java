@@ -32,12 +32,12 @@ public class Image {
     public static void watermark() {
 
         try {
-            File folder = new File("C:\\Users\\pc room\\Desktop\\Business\\fb\\nonbranded\\");
+            File folder = new File("C:\\Users\\User\\OneDrive\\Desktop\\Business\\fb\\new\\");
             File[] files = folder.listFiles();
             if (files != null) {
                 for (int i = 0; i < files.length; i++) {
                     BufferedImage sourceImage = ImageIO.read(files[i]);
-                    BufferedImage watermarkImage = ImageIO.read(new File("C:\\Users\\pc room\\Desktop\\water.png"));
+                    BufferedImage watermarkImage = ImageIO.read(new File("C:\\Users\\User\\OneDrive\\Desktop\\Business\\fb\\water.png"));
 
                     // initializes necessary graphic properties
                     Graphics2D g2d = (Graphics2D) sourceImage.getGraphics();
@@ -51,7 +51,7 @@ public class Image {
                     // paints the image watermark
                     g2d.drawImage(watermarkImage, topLeftX, topLeftY, null);
 
-                    ImageIO.write(sourceImage, "png", new File("C:\\Users\\pc room\\Desktop\\Business\\fb\\ad\\" + files[i].getName()));
+                    ImageIO.write(sourceImage, "png", new File("C:\\Users\\User\\OneDrive\\Desktop\\Business\\fb\\new\\" + files[i].getName()));
                     g2d.dispose();
 
                     System.out.println("Added");

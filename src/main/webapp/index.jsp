@@ -22,7 +22,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="logout.jsp">Log Out</a>
+                <a class="nav-link" href="/logout">Log Out</a>
             </li>
 
 
@@ -38,7 +38,7 @@
 
 <div class="jumbotron" style="margin-left:50px ; margin-top:20px">
     <h1 class="display-4">Hello, User</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
         featured content or information.</p>
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
