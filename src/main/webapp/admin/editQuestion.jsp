@@ -34,6 +34,7 @@
             throwables.printStackTrace();
         }
     }
+    else{
 %>
 
 
@@ -58,7 +59,7 @@
     <div class="row">
         <%
             ArrayList<Question> arr = null;
-            QuestionDAO questionDAO = null;
+            QuestionDAO questionDAO;
             try {
                 questionDAO = new QuestionDAO(new Db().getCon());
                 arr = questionDAO.getAll();
@@ -66,7 +67,7 @@
                 throwables.printStackTrace();
             }
             Question question = null;
-            for (int i = 0; i < Objects.requireNonNull(arr).size(); i++) {
+            for (int i = 0; i < arr.size(); i++) {
                 if (request.getParameter("name").equals(arr.get(i).getQuestion())) {
                     question = arr.get(i);
                 }
@@ -136,7 +137,10 @@
                         %>
                         <option value="<%=categorie.getName()%>"><%=categorie.getName()%>
                         </option>
-                        <%}%>
+                        <%}
+                        }
+                        %>
+
                     </select>
                 </div>
                 <br>
