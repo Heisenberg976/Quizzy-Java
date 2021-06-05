@@ -1,4 +1,4 @@
-package DB;
+package DB.USER;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class UserDAO {
     private Connection con;
-    private int id;
 
     public UserDAO(Connection con) throws SQLException {
         this.con = con;
@@ -19,9 +18,10 @@ public class UserDAO {
 
     public void addUser(User user) {
         try {
-            PreparedStatement st = con.prepareStatement("insert into users (email,password)   values(?,?)");
+            PreparedStatement st = con.prepareStatement("insert into users (name,email,password)   values(?,?,?)");
             st.setString(1, user.getUsername());
-            st.setString(2, user.getPassword());
+            st.setString(2, user.getEmail());
+            st.setString(3, user.getPassword());
             st.executeUpdate();
 
 
@@ -47,7 +47,7 @@ public class UserDAO {
             PreparedStatement st = con.prepareStatement("select* from users");
             ResultSet res = st.executeQuery();
             while (res.next()) {
-                users.add(new User(res.getString(2), res.getString(3)));
+                users.add(new User(res.getString(2), res.getString(3),res.getString(4)));
             }
 
         } catch (SQLException throwables) {
@@ -71,16 +71,19 @@ public class UserDAO {
         }
     }
 
-    public boolean select(String username, String password) {
-        ResultSet res = null;
+    public User select(String email) {
+         User ans = null;
         try {
-            PreparedStatement st = con.prepareStatement("select from users where email = ? and password = ?");
-            st.setString(1, username);
-            st.setString(2, password);
-             res = st.executeQuery();
+
+            PreparedStatement st = con.prepareStatement("select* from users where email = ?");
+            st.setString(1, email);
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+               ans = new User(res.getString(2),res.getString(3),res.getString(4));
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return res != null;
+        return ans;
     }
 }

@@ -1,6 +1,7 @@
 package Servlets;
 
-import DB.UserDAO;
+import DB.USER.User;
+import DB.USER.UserDAO;
 import Database.Db;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet("/login")
 
@@ -20,14 +22,16 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
+
         if(email != null && password!= null ){
             try {
                 UserDAO userdao = new UserDAO(new Db().getCon());
-                if(userdao.select(email, password)){
+                User user = userdao.select(email);
+                if(user != null && password.equals(user.getPassword())){
                     HttpSession session = request.getSession();
                     session.setAttribute("email",email);
-//                    session.setAttribute("password",password);
-
+                    session.setAttribute("name",user.getUsername());
+                    request.getRequestDispatcher("index.jsp").forward(request,response);
                 }
                 else{
                     request.setAttribute("error","Wrong Username Or Password");

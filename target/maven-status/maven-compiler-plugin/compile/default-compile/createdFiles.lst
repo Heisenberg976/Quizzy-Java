@@ -1,2 +1,14 @@
+Servlets\Register.class
+DB\RESULT\MailSender.class
+DB\RESULT\Result.class
+DB\CATEGORIES\CategorieDAO.class
+DB\USER\User.class
+DB\USER\UserDAO.class
 Servlets\Login.class
+DB\QUESTIONS\QuestionDAO.class
+DB\QUESTIONS\Question.class
+DB\RESULT\MailSender$1.class
+Servlets\SessionCheck.class
+DB\RESULT\ResultDAO.class
+DB\CATEGORIES\Categorie.class
 Database\Db.class

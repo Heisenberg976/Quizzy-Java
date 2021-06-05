@@ -12,12 +12,12 @@ import java.io.IOException;
 public class Logout extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         //session destroy
         if (session != null) {
             session.invalidate();
         }
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("/").forward(request, response);
     }
 }

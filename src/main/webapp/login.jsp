@@ -14,7 +14,11 @@
                         <input type="password" class="form-control" name="password">
                         <a href="register.jsp">Create new account</a>
                         <br> <br>
-                        <p style="color:red"><%=request.getAttribute("error")%></p>
+                        <%
+                            String s = (String) request.getAttribute("error");
+                            if(s != null)
+                        %>
+                        <p style="color:red"><%=s%></p>
                         <input type="submit" name="submit" value="Sign in" class="btn btn-primary">
                     </form>
                 </div>

@@ -11,11 +11,11 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.jsp">Home<span class="sr-only"></span></a>
+                <a class="nav-link" href="index.jsp"><span class="sr-only">Home</span></a>
             </li>
             <li class="nav-item">
 
-                <a class="nav-link" href="categories.jsp">Categories<span class="sr-only"></span></a>
+                <a class="nav-link" href="categories.jsp"><span class="sr-only">Categories</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.jsp">Login</a>
@@ -27,7 +27,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="create-category.jsp">Admin</a>
+                <a class="nav-link" href="admin/create-category.jsp">Admin</a>
             </li>
 
 
